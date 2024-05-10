@@ -1,6 +1,7 @@
 package ui.Registration.E2E;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -22,7 +23,8 @@ public class RegistrationE2E extends BaseTest {
         loginPage = new LoginPage(driver);
     }
 
-    @Test
+    @Test(description = "Test Successful Registration with Valid Data")
+    @Description("Test Description: Ensure that a user can register successfully with valid data.")
     public void testRegistrationWithValidDetails() {
         homePage.clickLoginRegister();
         registrationPage.goToRegistrationPageWithRegisterAsJobSeekerWIthEmail();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -37,6 +38,7 @@ public class RegistrationPage {
         waitUtils = new WaitUtils(driver);
     }
 
+    @Step("Clicking on 1. Registration button 2. Job Seeker Button 3. Register with Email Button")
     public void goToRegistrationPageWithRegisterAsJobSeekerWIthEmail() {
         WebElement registrationElement = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), registrationButton);
         uiActions.click(registrationElement);
@@ -47,6 +49,7 @@ public class RegistrationPage {
 
     }
 
+    @Step("Clear Field : {0}")
     public void clearField(String fieldName) {
         switch (fieldName) {
             case "email":
@@ -67,6 +70,7 @@ public class RegistrationPage {
         }
     }
 
+    @Step("Checking that {0} field turn red")
     public boolean isFieldRed(String fieldType) {
         String xpath;
         if (fieldType.equals("agreeTerms") || fieldType.equals("agreeGdpr")) {
@@ -80,6 +84,7 @@ public class RegistrationPage {
         return fieldInputElement.isDisplayed();
     }
 
+    @Step("Checking Invalid Email Error Message is shown")
     public boolean isInvalidEmailErrorMessageDisplayed() {
         try {
             WebElement errorMessage = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), invalidEmailToolTipErrorLabel);
@@ -89,6 +94,7 @@ public class RegistrationPage {
         }
     }
 
+    @Step("Checking password not completed error is shown")
     public boolean isPasswordNotCompleteErrorMessageDisplayed() {
         try {
             WebElement errorMessage = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), passwordNotCompleteTooltipErrorLabel);
@@ -98,6 +104,7 @@ public class RegistrationPage {
         }
     }
 
+    @Step("Checking email already exists error is shown")
     public boolean isEmailAlreadyInUseErrorMessageDisplayed() {
         try {
             WebElement errorMessage = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), emailAlreadyUsedTooltipErrorLabel);
@@ -107,46 +114,54 @@ public class RegistrationPage {
         }
     }
 
-
+    @Step("Entering email :{0}")
     public void enterEmail(String email) {
         WebElement emailElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), emailField);
         uiActions.enterText(emailElement, email);
     }
 
+    @Step("Entering password")  //passwords should not be shown in the report for security purpose so have removed it
     public void enterPassword(String password) {
         WebElement passwordElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), passwordField);
         uiActions.enterText(passwordElement, password);
     }
 
+    @Step("Entering first name:{0}")
     public void enterFirstName(String firstName) {
         WebElement firstNameElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), firstNameField);
         uiActions.enterText(firstNameElement, firstName);
     }
 
+    @Step("Entering last name:{0}")
     public void enterLastName(String lastName) {
         WebElement lastNameElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), lastNameField);
         uiActions.enterText(lastNameElement, lastName);
     }
 
+    @Step("Checking accepts terms checkbox")
     public void acceptTerms() {
         WebElement termsElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), agreeTermsCheckbox);
         uiActions.click(termsElement);
     }
 
+    @Step("Checking accepts GDPR checkbox")
     public void acceptGDPR() {
         WebElement gdprElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), agreeGdprCheckbox);
         uiActions.click(gdprElement);
     }
 
+    @Step("Clicking on register button")
     public void clickRegister() {
         WebElement registerButtonElement = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), registerButton);
         uiActions.click(registerButtonElement);
     }
 
+    @Step("Reload Page")
     public void reloadPage() {
         driver.navigate().refresh();
     }
 
+    @Step("Register new User")
     public void registerNewUser(String email, String password, String firstName, String lastName) {
         enterEmail(email);
         enterPassword(password);

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,7 @@ public class HomePage {
         waitUtils = new WaitUtils(driver);
         uiActions = new UIActions(driver);
     }
-
+    @Step("Click on Login|Register Button at Home Page")
     public void clickLoginRegister() {
         WebElement loginRegisterElement = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), loginRegisterButton);
         uiActions.click(loginRegisterElement);

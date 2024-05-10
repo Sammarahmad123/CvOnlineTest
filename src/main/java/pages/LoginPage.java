@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -26,12 +27,12 @@ public class LoginPage {
         waitUtils = new WaitUtils(driver);
     }
 
-
+    @Step("Click on Login Button")
     public void clickLoginButton() {
         WebElement loginBtnElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), loginAfterSuccessfulRegistrationButton);
         uiActions.click(loginBtnElement);
     }
-
+    @Step("Checking that Registration Successful popup message label is shown")
     public boolean isSuccessfulRegistrationMessageShown() {
         try {
             WebElement successMessageElement = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), successfulRegistrationMessageLabel);
@@ -40,7 +41,7 @@ public class LoginPage {
             return false;
         }
     }
-
+    @Step("Checking that Login Form is shown")
     public boolean isLoginFormShown() {
         try {
             WebElement loginFormElement = waitUtils.waitForElementToBeClickable(Duration.ofSeconds(WAIT_SHORT), loginForm);
