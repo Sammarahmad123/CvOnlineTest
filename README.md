@@ -69,7 +69,7 @@ CVEETestProject/
 
 ### Clone the Repository
 
-#### Run following command to run the test cases
+#### Clean the project
 ```bash
 mvn clean install
 ```
