@@ -65,6 +65,11 @@
 			<artifactId>allure-java-commons</artifactId>
 			<version>2.19.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.7</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -74,12 +79,15 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/testng/RegistrationE2E.xml</suiteXmlFile>
 						<suiteXmlFile>src/test/resources/testng/NegativeRegistration.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/testng/RegistrationE2E.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<allure.results.directory>target/allure-results</allure.results.directory>
 					</systemPropertyVariables>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
+					</argLine>
 				</configuration>
 			</plugin>
 
