@@ -120,7 +120,7 @@ public class RegistrationPage {
         uiActions.enterText(emailElement, email);
     }
 
-    @Step("Entering password")  //passwords should not be shown in the report for security purpose so have removed it
+    @Step("Entering password")
     public void enterPassword(String password) {
         WebElement passwordElement = waitUtils.waitForVisibilityOfElement(Duration.ofSeconds(WAIT_SHORT), passwordField);
         uiActions.enterText(passwordElement, password);
