@@ -8,11 +8,7 @@ This project automates the end-to-end testing of the CV.ee registration process 
 
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [Running Tests](#running-tests)
-- [Generating Allure Reports](#generating-allure-reports)
-- [Configuration](#configuration)
-- [Additional Information](#additional-information)
+- [Setup and Running Tests and Reporting](#setup-instructions)
 
 ## Prerequisites
 
@@ -21,12 +17,56 @@ This project automates the end-to-end testing of the CV.ee registration process 
 - **Web Browser** (Chrome)
 - **IDE** (IntelliJ IDEA, Eclipse, etc.)
 
+## Project Structure
 
+```plaintext
+CVEETestProject/
+│
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── base/
+│   │       │   └── BaseTest.java
+│   │       └── configuration/
+│   │       │   ├── AllureListener.java
+│   │       │   ├── TimeoutConfig.java
+│   │       │   └── WebDriverSetup.java
+│   │       └── pages/
+│   │       │   ├── HomePage.java
+│   │       │   ├── LoginPage.java
+│   │       │   └── RegistrationPage.java
+│   │       └── utils/
+│   │           ├── ConfigReader.java
+│   │           ├── EmailGenerator.java
+│   │           ├── UIActions.java
+│   │           └── WaitUtils.java
+│   └── test/
+│       └── java/
+│           └── ui/
+│               └── Registration/
+│                   ├── E2E/
+│                   │   └── RegistrationE2E.java
+│                   └── Negative/
+│                       ├── InvalidEmailTest.java
+│                       ├── RegistrationWithExistingEmailTest.java
+│                       ├── RequiredFieldTurnRedTest.java
+│                       └── ShortPasswordTooltipTest.java
+│       └── resources/
+│           ├── properties/
+│           │   └── config.properties
+│           └── testng/
+│               ├── NegativeRegistration.xml
+│               └── RegistrationE2E.xml
+│
+├── target/
+│
+├── pom.xml
+└── README.md
 ## Setup Instructions
 
 ### Clone the Repository
 
-#### Clone the project and then run following command to run the test cases
+#### Run following command to run the test cases
 ```bash
 mvn clean install
 mvn clean test -> this command will run the tests
