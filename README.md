@@ -8,7 +8,9 @@ This project automates the end-to-end testing of the CV.ee registration process 
 
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
-- [Setup and Running Tests and Reporting](#setup-instructions)
+- [Setup Instructions](#setup-instructions)
+- [Running Tests](#running-tests)
+- [Generating Allure Reports](#generating-allure-reports)
 
 ## Prerequisites
 
@@ -62,6 +64,7 @@ CVEETestProject/
 │
 ├── pom.xml
 └── README.md
+```
 ## Setup Instructions
 
 ### Clone the Repository
@@ -69,5 +72,12 @@ CVEETestProject/
 #### Run following command to run the test cases
 ```bash
 mvn clean install
-mvn clean test -> this command will run the tests
-mvn allure:serve -> this will generate alure reports and opens a new browser window to view report
+```
+## Running Tests
+```bash
+mvn clean test
+```
+## Generating Allure Reports
+```bash
+mvn allure:serve
+```
