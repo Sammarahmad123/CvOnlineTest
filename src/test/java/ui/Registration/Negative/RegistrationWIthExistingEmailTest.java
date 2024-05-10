@@ -1,13 +1,16 @@
 package ui.Registration.Negative;
 
 import base.BaseTest;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegistrationPage;
 import utils.EmailGenerator;
-
+@Epic("CV Online")
+@Story("CV Online - Negative Flow - Register with Existing Email")
 public class RegistrationWIthExistingEmailTest extends BaseTest {
     private HomePage homePage;
     private RegistrationPage registrationPage;

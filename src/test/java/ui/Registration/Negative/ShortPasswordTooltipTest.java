@@ -1,12 +1,15 @@
 package ui.Registration.Negative;
 
 import base.BaseTest;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.RegistrationPage;
-
+@Epic("CV Online")
+@Story("CV Online - Negative Flow - Short Password")
 public class ShortPasswordTooltipTest extends BaseTest {
     private HomePage homePage;
     private RegistrationPage registrationPage;

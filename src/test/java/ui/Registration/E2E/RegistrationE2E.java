@@ -2,6 +2,8 @@ package ui.Registration.E2E;
 
 import base.BaseTest;
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,7 +11,8 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.RegistrationPage;
 import utils.EmailGenerator;
-
+@Epic("CV Online")
+@Story("CV Online - E2E Registration Flow")
 public class RegistrationE2E extends BaseTest {
 
     private HomePage homePage;
